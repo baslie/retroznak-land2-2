@@ -1,0 +1,236 @@
+# Архитектура проекта «Ретрознак» на Next.js
+
+## 1. Общая концепция
+
+- **Фреймворк:** Next.js 14 (App Router, TypeScript, `app/` directory).
+- **Рендеринг:** Static Site Generation (SSG) + частичное использование Client Components для интерактивности (табы, слайдеры, формы). Для форм используется API Route с отправкой писем через SMTP, чтобы обойтись без базы данных.
+- **Развёртывание:** Node.js-приложение на хостинге Beget. Режим `next start`, т.к. Beget поддерживает работу Node.js-приложений на VPS/виртуальном хостинге. Для статических ассетов возможен экспорт через `next export`, но из-за API Route для форм нужен Node-сервер.
+- **Стили:** Tailwind CSS + CSS Modules для особых кейсов (например, сложные анимации). Tailwind подключается через PostCSS (`postcss.config.js`).
+- **UI-библиотеки:** Framer Motion (микро-анимации), Swiper (слайдеры для таймлайна и отзывов).
+- **Иконки и SVG:** `@svgr/webpack` для импорта SVG как React-компонентов.
+- **Формы:** React Hook Form + Zod (валидация на клиенте и в API Route). Интеграция с Telegram/WhatsApp через deeplink и QR.
+- **Контент:** Хранится в виде TypeScript-констант в `src/content/`. Возможна дальнейшая интеграция с headless CMS.
+
+## 2. Структура проекта
+
+```
+root
+├─ app
+│  ├─ layout.tsx
+│  ├─ page.tsx
+│  ├─ (marketing)
+│  │  ├─ components
+│  │  │  ├─ HeroSection.tsx
+│  │  │  ├─ TimelineSection.tsx
+│  │  │  ├─ SegmentsSection.tsx
+│  │  │  ├─ ProductMatrixSection
+│  │  │  │  ├─ index.tsx
+│  │  │  │  ├─ Tabs.tsx
+│  │  │  │  ├─ ComparisonTable.tsx
+│  │  │  │  └─ data.ts
+│  │  │  ├─ ProductionSection.tsx
+│  │  │  ├─ ReviewsSection.tsx
+│  │  │  ├─ OrderProcessSection.tsx
+│  │  │  ├─ FAQSection.tsx
+│  │  │  ├─ FinalCTASection.tsx
+│  │  │  ├─ FloatingMenu.tsx
+│  │  │  ├─ MobileNavDrawer.tsx
+│  │  │  ├─ CTAButton.tsx
+│  │  │  ├─ ContactIcons.tsx
+│  │  │  └─ Forms
+│  │  │     ├─ CallbackForm.tsx
+│  │  │     ├─ ConsultationForm.tsx
+│  │  │     └─ QuestionForm.tsx
+│  │  ├─ layout.tsx (маркетинговый layout: хедер + футер)
+│  │  └─ page.tsx (сборка лендинга из секций)
+│  └─ api
+│     └─ forms
+│        ├─ contact
+│        │  └─ route.ts
+│        └─ types.ts
+├─ public
+│  ├─ images
+│  │  ├─ hero
+│  │  ├─ timeline
+│  │  ├─ products
+│  │  ├─ production
+│  │  ├─ reviews
+│  │  └─ qr
+│  ├─ pdf
+│  │  ├─ installation.pdf
+│  │  └─ care.pdf
+│  └─ logo.svg
+├─ src
+│  ├─ content
+│  │  ├─ hero.ts
+│  │  ├─ timeline.ts
+│  │  ├─ segments.ts
+│  │  ├─ products.ts
+│  │  ├─ production.ts
+│  │  ├─ reviews.ts
+│  │  ├─ orderProcess.ts
+│  │  ├─ faq.ts
+│  │  └─ footer.ts
+│  ├─ hooks
+│  │  ├─ useContactForm.ts
+│  │  └─ useMediaQuery.ts
+│  ├─ lib
+│  │  ├─ mailer.ts
+│  │  └─ analytics.ts
+│  ├─ styles
+│  │  ├─ globals.css
+│  │  └─ tailwind.css
+│  └─ types
+│     ├─ content.ts
+│     └─ forms.ts
+├─ tailwind.config.ts
+├─ postcss.config.js
+├─ tsconfig.json
+├─ next.config.mjs
+└─ package.json
+```
+
+## 3. Глобальные элементы и макеты
+
+### 3.1 Layout
+- `app/layout.tsx` — базовый HTML-шаблон (шрифты, мета-теги, скрипты аналитики).
+- `app/(marketing)/layout.tsx` — общий layout лендинга: фиксированный хедер, плавающий CTA, футер, компонент `ScrollToTop`.
+
+### 3.2 Навигация и взаимодействие
+- `FloatingMenu` отвечает за фиксированное меню на десктопе (логотип, ссылки, кнопка «Задать вопрос», иконки мессенджеров).
+- `MobileNavDrawer` — скрытое бургер-меню для мобильных устройств, открывается через `useState`.
+- `CTAButton` и `ContactIcons` — переиспользуемые компоненты для всех CTA.
+- `ScrollSpy` (возможно как часть `FloatingMenu`) отслеживает текущую секцию и подсвечивает пункт меню.
+
+## 4. Секции лендинга
+
+### 4.1 HeroSection
+- Состоит из двух колонок: текстовый блок (надзаголовок, заголовок, подзаголовок, две CTA) и визуал (фоновое изображение + бэйдж с историческим описанием).
+- Использует Framer Motion для анимации появления.
+
+### 4.2 TimelineSection
+- Горизонтальный таймлайн на десктопе (компонент `Timeline`, основанный на CSS Grid). На мобильных устройствах — Swiper-слайдер.
+- Каждая точка таймлайна — карточка с изображением, текстом и микро-CTA.
+- Врезка «Патент №93» реализуется как отдельный компонент `PatentHighlight`.
+
+### 4.3 SegmentsSection
+- Грид из 4 карточек с иконками/иллюстрациями. Адаптация под мобильные устройства: двухколоночный или одно колоночный список.
+- Под карточками — CTA «Получить подборку примеров...» (открывает модальное окно с формой `CallbackForm`).
+
+### 4.4 ProductMatrixSection
+- Вкладки (`Tabs`) переключают данные из `src/content/products.ts`.
+- Каждая вкладка содержит: карусель изображений, описание, характеристики (список), комплектацию, варианты оплаты, апселлы.
+- Под табами — `ComparisonTable` (отдельный компонент, использующий `Table`, с возможностью скролла на мобильных устройствах).
+- CTA «Оставить заявку на расчёт» рендерит форму `ConsultationForm` внутри секции.
+
+### 4.5 ProductionSection
+- Четырёхшаговый процесс (`ProcessSteps`) с иконками/фотографиями.
+- Блок «Команда» — карточки с фотографиями и описаниями.
+- Блок «Цифры» — статистика с крупными цифрами и подписями.
+
+### 4.6 ReviewsSection
+- Слайдер на Swiper с отзывами, рейтингами, фотографиями.
+- Возможность расширить отзыв (модальное окно с полным текстом и галереей).
+
+### 4.7 OrderProcessSection
+- Вертикальная шкала шагов с иконками, поддержка для мобильной версии (аккордеон или карточки).
+- Встроенная CTA «Оставьте заявку» (форма `ConsultationForm`).
+
+### 4.8 FAQSection
+- Аккордеон (Headless UI Disclosure или собственная реализация). Каждая категория: вопрос и развёрнутый ответ.
+- Под аккордеоном форма `QuestionForm`.
+
+### 4.9 FinalCTASection
+- Заголовок, подзаголовок, список триггеров (иконки + текст).
+- Три CTA: форма заявки, кнопки для WhatsApp/Telegram + QR (статичные изображения из `/public/images/qr/`).
+- Ссылки на PDF (инструкция, уход) — статические файлы в `public/pdf/`.
+- Соцсети и юридический блок, копирайт.
+
+## 5. Формы и обработка заявок
+
+### 5.1 Компоненты форм
+- Общий набор полей: имя, телефон, город, предпочитаемый мессенджер, комментарий (по требованию секции).
+- Каждая форма наследует общую схему Zod (`ContactFormSchema`) и передаёт набор полей.
+- Используются `react-hook-form` + `@hookform/resolvers/zod`.
+- Маска телефона — `react-input-mask`.
+
+### 5.2 API Route
+- `app/api/forms/contact/route.ts`: принимает POST-запросы, валидирует данные Zod-схемой, отправляет email через `nodemailer`.
+- SMTP-параметры берутся из `.env` (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, `MAIL_TO`). На Beget используется их SMTP.
+- Ведение логов ошибок в консоль и опционально в файл (`lib/logger.ts`, если понадобится).
+
+### 5.3 Ответ пользователю
+- При успехе API возвращает статус 200 + сообщение, на клиенте отображается `toast` (например, `sonner`).
+- При ошибке — статус 400/500, отображается сообщение об ошибке.
+
+## 6. Контент и типы данных
+
+- Типы данных описаны в `src/types/content.ts`, например:
+  ```ts
+  export type TimelineItem = {
+    id: string;
+    era: string;
+    title: string;
+    description: string;
+    image: StaticImageData;
+    cta: {
+      label: string;
+      href: string;
+    };
+  };
+  ```
+- Контентные файлы (например, `timeline.ts`) экспортируют массивы объектов, которые импортируются в соответствующие секции.
+- Это обеспечивает центр управления контентом, упрощая локализацию и модификации.
+
+## 7. Стилизация и дизайн-система
+
+- Tailwind используется для типографики, цветовой схемы, отступов, сеток.
+- Создаётся кастомная тема (`tailwind.config.ts`):
+  - Цвета: `retro-blue`, `retro-cream`, `retro-brown`, `accent-gold`.
+  - Шрифты: заголовки — `"Montserrat"`, текст — `"PT Sans"`.
+  - Тени, радиусы, анимации.
+- Глобальные стили (`globals.css`) подключают CSS-переменные, шрифты из Google Fonts, normalize.
+- Компоненты используют Tailwind-классы + вариативные классы через `clsx`/`cva` для состояния (primary/secondary CTA).
+
+## 8. Медиа и ассеты
+
+- Изображения оптимизируются через `next/image`, хранятся в `public/images/` с подкаталогами по секциям.
+- PDF-файлы (инструкция, уход) хранятся в `public/pdf/`.
+- SVG иконки импортируются как компоненты.
+
+## 9. Оптимизация и SEO
+
+- Использование `next-seo` или `Metadata API` Next.js для заголовков, описаний, Open Graph.
+- Ленивая загрузка секций (динамический импорт) для тяжёлых компонентов (например, Swiper).
+- Lighthouse оптимизации: предзагрузка критичных шрифтов, оптимизация изображений.
+- Fallback для Swiper на сервере (использование dynamic import c `{ ssr: false }`).
+
+## 10. Аналитика и интеграции
+
+- Поддержка Yandex.Metrica и Google Analytics через скрипты в `app/layout.tsx`.
+- События отправляются через `lib/analytics.ts` (привязка к CTA и формам).
+
+## 11. Сборка и деплой
+
+1. `npm run build` — сборка проекта.
+2. `npm run start` — запуск production-сервера.
+3. Для Beget:
+   - Использовать Node.js окружение (например, Node 18).
+   - Настроить `ecosystem.config.js` (PM2) или `package.json` scripts.
+   - Обновление через `git pull`, `npm install`, `npm run build`, `npm run start` (или перезапуск PM2).
+
+## 12. Тестирование и качество
+
+- Юнит-тесты компонентов через Vitest + Testing Library (`tests/` каталог, не показан выше).
+- Линтинг: ESLint (конфиг `next lint`), Prettier.
+- Проверка типов: `tsc --noEmit`.
+- E2E-тесты критичного функционала (например, отправка форм) через Playwright (опционально).
+
+## 13. Открытые вопросы
+
+- Требуется подтвердить конечные шрифты и фирменную палитру (если есть брендбук).
+- Нужно уточнить SMTP-данные и email-адрес получателя заявок.
+- Необходимо определить, будет ли интеграция с CRM или достаточно email-уведомлений.
+- Уточнить, кто предоставляет фотографии/видео для секций.
+- Решить, нужен ли многоязычный режим (пока рассматриваем только русский).
+
