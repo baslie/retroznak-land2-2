@@ -36,11 +36,10 @@ export function FAQSection() {
         </div>
         <div className="flex flex-col items-start gap-4 rounded-3xl border border-border/70 bg-retro-charcoal/85 p-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h3 className="text-xl font-semibold text-retro-ivory">Остались вопросы?</h3>
+            <h3 className="text-xl font-semibold text-retро-ivory">Остались вопросы?</h3>
             <p className="text-sm text-muted-foreground">Мы ответим в удобном формате и отправим дополнительные материалы.</p>
           </div>
           <CTAButton cta={cta} />
-          <div id="question" className="sr-only" aria-hidden />
         </div>
       </div>
     </section>

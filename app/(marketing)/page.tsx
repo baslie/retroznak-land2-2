@@ -6,6 +6,7 @@ import { ProductionSection } from "./components/ProductionSection";
 import { ReviewsSection } from "./components/ReviewsSection";
 import { OrderProcessSection } from "./components/OrderProcessSection";
 import { FAQSection } from "./components/FAQSection";
+import { ContactFormsSection } from "./components/Forms/ContactFormsSection";
 import { FinalCTASection } from "./components/FinalCTASection";
 
 export default function MarketingHomePage() {
@@ -19,6 +20,7 @@ export default function MarketingHomePage() {
       <ReviewsSection />
       <OrderProcessSection />
       <FAQSection />
+      <ContactFormsSection />
       <FinalCTASection />
     </div>
   );

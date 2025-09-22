@@ -1,12 +1,15 @@
 import type { MessengerPlatform } from "./content";
 
-export type ContactReason =
-  | "callback"
-  | "consultation"
-  | "question"
-  | "timeline"
-  | "order"
-  | "support";
+export const CONTACT_REASONS = [
+  "callback",
+  "consultation",
+  "question",
+  "timeline",
+  "order",
+  "support",
+] as const;
+
+export type ContactReason = (typeof CONTACT_REASONS)[number];
 
 export interface ContactFormPayload {
   name: string;
@@ -49,6 +52,9 @@ export interface ContactFormField {
     value: string;
   }>;
   helperText?: string;
+  autoComplete?: string;
+  inputMode?: "text" | "search" | "tel" | "email" | "url" | "numeric" | "decimal";
+  rows?: number;
 }
 
 export interface ContactFormDefinition {
@@ -58,4 +64,6 @@ export interface ContactFormDefinition {
   submitLabel: string;
   successMessage: string;
   fields: ContactFormField[];
+  contactReason: ContactReason;
+  aliasTargetIds?: string[];
 }

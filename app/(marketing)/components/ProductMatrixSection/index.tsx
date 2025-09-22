@@ -150,10 +150,8 @@ export function ProductMatrixSection() {
                 <CTAButton cta={secondaryCta} className="flex-1 justify-center" />
               </div>
               <p className="text-xs text-muted-foreground/80">
-                Формы консультаций появятся на следующем этапе разработки. Сейчас вы можете оставить заявку через кнопки выше.
+                После выбора модели оставьте заявку через форму ниже — менеджер подготовит расчёт и пришлёт примеры.
               </p>
-              <div id="consultation" className="sr-only" aria-hidden />
-              <div id="custom-project" className="sr-only" aria-hidden />
             </div>
           </motion.div>
         </div>
