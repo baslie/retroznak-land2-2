@@ -36,8 +36,8 @@
    **Проверки:** `npm run lint`, `npm run typecheck`, модульные тесты утилит (`npm run test`).
 
 ### Этап B. Функциональные секции и интеграции
-1. **`[ ]` B1 — Реализовать маркетинговые секции лендинга**  
-   **Статус:** -  
+1. **`[✅]` B1 — Реализовать маркетинговые секции лендинга**
+   **Статус:** ✅ выполнено — собран полный лендинг с секциями Hero, Timeline, Segments, Product Matrix, Production, Reviews, Order Process, FAQ и финальным CTA, добавлены плавающее меню и мобильное бургер-меню, пройдены `npm run lint`, `npm run typecheck`, `npm run test`.
    **Суть:** собрать компоненты из каталога `app/(marketing)/components/` согласно `wireframe.md` (Hero, Timeline, Segments, ProductMatrix, Production, Reviews, OrderProcess, FAQ, Final CTA, FloatingMenu, MobileNavDrawer). Использовать Framer Motion, Swiper и `next/image`.  
    **Ключевые файлы:** `app/(marketing)/page.tsx`, `app/(marketing)/layout.tsx`, соответствующие компоненты в `app/(marketing)/components/`.  
    **Проверки:** `npm run lint`, `npm run typecheck`, `npm run test`, ручная вёрсточная проверка в браузере.
