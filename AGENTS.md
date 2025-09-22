@@ -22,9 +22,9 @@
    **Проверки:** `npm run lint`, `npm run typecheck`, `npm run test` (если тестов ещё нет — зафиксируй пропуск и причину).  
    **Результат:** рабочее приложение с пустым маркетинговым layout и базовыми метаданными.
 
-2. **`[✅]` A2 — Настроить стили и UI-инфраструктуру**
-   **Статус:** ✅ выполнено — Tailwind CSS и shadcn/ui подключены, настроена брендовая тема и шрифты Noto Serif + Manrope.
-   **Комментарий:** Прогон `npm run lint`, `npm run typecheck`; ручной просмотр через `npm run dev` — стартовая страница открывается без ошибок, базовые компоненты отображаются корректно.
+2. **`[✅]` A2 — Настроить стили и UI-инфраструктуру**  
+   **Статус:** ✅ выполнено — Tailwind CSS и shadcn/ui подключены, настроена брендовая тема и шрифты Noto Serif + Manrope.  
+   **Комментарий:** Прогон `npm run lint`, `npm run typecheck`; ручной просмотр через `npm run dev` — стартовая страница открывается без ошибок, базовые компоненты отображаются корректно.  
    **Суть:** подключить Tailwind CSS и shadcn/ui, сформировать тему (цвета `retro-charcoal`, `retro-graphite`, `retro-smoke`, `retro-ivory`, `accent-platinum`), добавить шрифты `Noto Serif` и `Manrope`.  
    **Ключевые файлы:** `tailwind.config.ts`, `postcss.config.js`, `src/styles/globals.css`, `src/styles/tailwind.css`, сгенерированные компоненты shadcn/ui в `components/ui/`.  
    **Проверки:** `npm run lint`, `npm run typecheck`, локальный просмотр через `npm run dev` (задокументировать ручную проверку в комментариях к задаче).
