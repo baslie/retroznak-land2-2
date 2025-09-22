@@ -5,10 +5,10 @@
 - **Фреймворк:** Next.js 14 (App Router, TypeScript, `app/` directory).
 - **Рендеринг:** Static Site Generation (SSG) + частичное использование Client Components для интерактивности (табы, слайдеры, формы). Для форм используется API Route с отправкой писем через SMTP, чтобы обойтись без базы данных.
 - **Развёртывание:** Node.js-приложение на хостинге Beget. Режим `next start`, т.к. Beget поддерживает работу Node.js-приложений на VPS/виртуальном хостинге. Для статических ассетов возможен экспорт через `next export`, но из-за API Route для форм нужен Node-сервер.
-- **Стили:** Tailwind CSS + CSS Modules для особых кейсов (например, сложные анимации). Tailwind подключается через PostCSS (`postcss.config.js`).
+- **Стили:** Tailwind CSS. Tailwind подключается через PostCSS (`postcss.config.js`).
 - **UI-библиотеки:** shadcn/ui (базовые элементы интерфейса, генерируемые CLI), Framer Motion (микро-анимации), Swiper (слайдеры для таймлайна и отзывов).
 - **Иконки и SVG:** `@svgr/webpack` для импорта SVG как React-компонентов.
-- **Формы:** React Hook Form + Zod (валидация на клиенте и в API Route). Интеграция с Telegram/WhatsApp через deeplink и QR.
+- **Формы:** React Hook Form + Zod (валидация на клиенте и в API Route). Интеграция с Telegram/WhatsApp через deeplink.
 - **Контент:** Хранится в виде TypeScript-констант в `src/content/`. Возможна дальнейшая интеграция с headless CMS.
 
 ## 2. Структура проекта
@@ -211,7 +211,7 @@ root
 
 ## 10. Аналитика и интеграции
 
-- Поддержка Yandex.Metrica и Google Analytics через скрипты в `app/layout.tsx`.
+- Поддержка Yandex.Metrica через скрипты в `app/layout.tsx`.
 - События отправляются через `lib/analytics.ts` (привязка к CTA и формам).
 
 ## 11. Сборка и деплой
