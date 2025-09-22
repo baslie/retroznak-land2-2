@@ -1,4 +1,15 @@
+import { createMockPhoto } from "@/lib/placeholders";
 import type { HeroContent } from "@/types/content";
+
+const heroVisualImage = createMockPhoto({
+  width: 960,
+  height: 640,
+  title: "Retroznak №12",
+  subtitle: "Подсветка 12 В и ручная эмаль",
+  footer: "Монтаж за 45 минут",
+  badge: { text: "Фасад Петроградки" },
+  description: "Подсвечиваемый ретрознак на фасаде кирпичного дома",
+});
 
 export const heroContent: HeroContent = {
   eyebrow: "Проектируем и создаём",
@@ -18,7 +29,7 @@ export const heroContent: HeroContent = {
     variant: "secondary",
   },
   visual: {
-    image: "/images/hero/retro-sign.jpg",
+    image: heroVisualImage,
     alt: "Подсвечиваемый ретрознак на фасаде кирпичного дома",
     badge: {
       title: "Ретрознаки, популярные в 1930–50 гг.",

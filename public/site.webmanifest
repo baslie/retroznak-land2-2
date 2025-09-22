@@ -1,0 +1,18 @@
+{
+  "name": "Retroznak Land 2.0",
+  "short_name": "Retroznak",
+  "description": "Объёмные ретрознаки и неоновые вывески ручной работы.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f1014",
+  "theme_color": "#0f1014",
+  "lang": "ru-RU",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

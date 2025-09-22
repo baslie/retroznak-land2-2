@@ -1,3 +1,4 @@
+import { createMockPhoto } from "@/lib/placeholders";
 import type { ProductionContent } from "@/types/content";
 
 export const productionContent: ProductionContent = {
@@ -36,21 +37,42 @@ export const productionContent: ProductionContent = {
       name: "Анна Лебедева",
       role: "Художник по эмали",
       experience: "6 лет в реставрации",
-      image: "/images/production/team-anna.jpg",
+      image: createMockPhoto({
+        width: 520,
+        height: 640,
+        title: "Анна Л.",
+        subtitle: "Художник по эмали",
+        footer: "6 лет в реставрации",
+        description: "Портрет Анны Лебедевой, художника по эмали",
+      }),
     },
     {
       id: "dmitry",
       name: "Дмитрий Соколов",
       role: "Технолог",
       experience: "12 лет в металлообработке",
-      image: "/images/production/team-dmitry.jpg",
+      image: createMockPhoto({
+        width: 520,
+        height: 640,
+        title: "Дмитрий С.",
+        subtitle: "Технолог",
+        footer: "12 лет опыта",
+        description: "Портрет Дмитрия Соколова, технолога мастерской",
+      }),
     },
     {
       id: "svetlana",
       name: "Светлана Орлова",
       role: "Менеджер по заказам",
       experience: "Отвечает на заявки и координирует монтаж",
-      image: "/images/production/team-svetlana.jpg",
+      image: createMockPhoto({
+        width: 520,
+        height: 640,
+        title: "Светлана О.",
+        subtitle: "Менеджер",
+        footer: "Координация заказов",
+        description: "Портрет Светланы Орловой, менеджера по заказам",
+      }),
     },
   ],
   metrics: [

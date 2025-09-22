@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 type ContactFormValues = z.input<typeof contactFormSchema>;
 
@@ -67,6 +68,14 @@ export function ContactForm({ definition, className }: ContactFormProps) {
     const result = await submit(parsed);
 
     if (result.success) {
+      trackEvent({
+        name: "contact_form_submitted",
+        properties: {
+          contactReason: definition.contactReason,
+          hasEmail: Boolean(parsed.email),
+          hasComment: Boolean(parsed.comment),
+        },
+      });
       reset({ ...defaultValues, consent: false });
     }
   });

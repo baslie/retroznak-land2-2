@@ -23,8 +23,8 @@ export const footerContent: FooterContent = {
     {
       title: "Материалы",
       links: [
-        { label: "Инструкция по монтажу", href: "/pdf/installation.pdf" },
-        { label: "Уход за ретрознаком", href: "/pdf/care.pdf" },
+        { label: "Инструкция по монтажу", href: "/docs/installation" },
+        { label: "Уход за ретрознаком", href: "/docs/care" },
         { label: "Блог о советской типографике", href: "https://example.com/blog" },
       ],
     },
