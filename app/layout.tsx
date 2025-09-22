@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope, Noto_Serif } from "next/font/google";
+
+import { cn } from "@/lib/utils";
+import "@/styles/tailwind.css";
 import "@/styles/globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin", "latin-ext", "cyrillic"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const notoSerif = Noto_Serif({
+  variable: "--font-noto-serif",
+  subsets: ["latin", "latin-ext", "cyrillic"],
   display: "swap",
 });
 
@@ -27,8 +30,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="ru" className="bg-background text-foreground">
+      <body
+        className={cn(
+          "min-h-screen bg-background text-foreground antialiased",
+          manrope.variable,
+          notoSerif.variable,
+        )}
+      >
         {children}
       </body>
     </html>
