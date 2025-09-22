@@ -1,3 +1,4 @@
+import { createMockPhoto } from "@/lib/placeholders";
 import type { ProductContent } from "@/types/content";
 
 export const productContent: ProductContent = {
@@ -17,8 +18,28 @@ export const productContent: ProductContent = {
       priceFrom: "от 1 990 ₽",
       leadTime: "5–7 дней",
       images: [
-        { src: "/images/products/classic-1.jpg", alt: "Классический ретрознак на фасаде" },
-        { src: "/images/products/classic-2.jpg", alt: "Классический ретрознак крупным планом" },
+        {
+          src: createMockPhoto({
+            width: 720,
+            height: 480,
+            title: "Классика",
+            subtitle: "Фасад с подсветкой",
+            footer: "Тон RAL 5003",
+            description: "Классический ретрознак на фасаде",
+          }),
+          alt: "Классический ретрознак на фасаде",
+        },
+        {
+          src: createMockPhoto({
+            width: 720,
+            height: 480,
+            title: "Классика",
+            subtitle: "Деталь",
+            footer: "Гравировка номера",
+            description: "Классический ретрознак крупным планом",
+          }),
+          alt: "Классический ретрознак крупным планом",
+        },
       ],
       features: [
         "Толщина стали 1,5 мм",
@@ -53,8 +74,28 @@ export const productContent: ProductContent = {
       priceFrom: "от 3 700 ₽",
       leadTime: "7–10 дней",
       images: [
-        { src: "/images/products/petrogradsky-1.jpg", alt: "Петроградский ретрознак в интерьере парадной" },
-        { src: "/images/products/petrogradsky-2.jpg", alt: "Петроградский ретрознак днём" },
+        {
+          src: createMockPhoto({
+            width: 720,
+            height: 480,
+            title: "Петроградский",
+            subtitle: "Интерьер парадной",
+            footer: "Эмаль с двух сторон",
+            description: "Петроградский ретрознак в интерьере парадной",
+          }),
+          alt: "Петроградский ретрознак в интерьере парадной",
+        },
+        {
+          src: createMockPhoto({
+            width: 720,
+            height: 480,
+            title: "Петроградский",
+            subtitle: "Дневной свет",
+            footer: "Кант и сенсор",
+            description: "Петроградский ретрознак днём",
+          }),
+          alt: "Петроградский ретрознак днём",
+        },
       ],
       features: [
         "Сталь 2 мм",
@@ -89,8 +130,28 @@ export const productContent: ProductContent = {
       priceFrom: "от 5 100 ₽",
       leadTime: "10–14 дней",
       images: [
-        { src: "/images/products/leningradsky-1.jpg", alt: "Премиальный ретрознак на историческом фасаде" },
-        { src: "/images/products/leningradsky-2.jpg", alt: "Латунные элементы ретрознака" },
+        {
+          src: createMockPhoto({
+            width: 720,
+            height: 480,
+            title: "Ленинградский",
+            subtitle: "Исторический фасад",
+            footer: "Латунный кант",
+            description: "Премиальный ретрознак на историческом фасаде",
+          }),
+          alt: "Премиальный ретрознак на историческом фасаде",
+        },
+        {
+          src: createMockPhoto({
+            width: 720,
+            height: 480,
+            title: "Ленинградский",
+            subtitle: "Детали",
+            footer: "Ручная заливка",
+            description: "Латунные элементы ретрознака",
+          }),
+          alt: "Латунные элементы ретрознака",
+        },
       ],
       features: [
         "Латунный кант",

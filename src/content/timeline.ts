@@ -1,3 +1,4 @@
+import { createMockPhoto } from "@/lib/placeholders";
 import type { TimelineContent } from "@/types/content";
 
 export const timelineContent: TimelineContent = {
@@ -12,7 +13,14 @@ export const timelineContent: TimelineContent = {
       description:
         "Инженер Пётр Шикульский закрепляет конструкцию ретрознака в Патенте №93 и описывает его как \"освещаемый указатель для улиц\".",
       image: {
-        src: "/images/timeline/patent.jpg",
+        src: createMockPhoto({
+          width: 840,
+          height: 520,
+          title: "Патент №93",
+          subtitle: "Освещаемый указатель",
+          footer: "1924 год",
+          description: "Архивный патент на домовой знак",
+        }),
         alt: "Архивный патент на домовой знак",
       },
       cta: {
@@ -28,7 +36,14 @@ export const timelineContent: TimelineContent = {
       description:
         "Световые таблички становятся неотъемлемой частью городского ландшафта: помогают милиции и служат навигацией для гостей города.",
       image: {
-        src: "/images/timeline/street.jpg",
+        src: createMockPhoto({
+          width: 840,
+          height: 520,
+          title: "Улица 1957",
+          subtitle: "Подсветка на фасадах",
+          footer: "Советский квартал",
+          description: "Советская улица с подсвечиваемым адресным знаком",
+        }),
         alt: "Советская улица с подсвечиваемым адресным знаком",
       },
     },
@@ -39,7 +54,14 @@ export const timelineContent: TimelineContent = {
       description:
         "Мы реставрируем сохранившиеся экземпляры и создаём точные реплики, чтобы каждый дом мог рассказать свою историю.",
       image: {
-        src: "/images/timeline/restoration.jpg",
+        src: createMockPhoto({
+          width: 840,
+          height: 520,
+          title: "Мастерская",
+          subtitle: "Реставрация",
+          footer: "Retroznak",
+          description: "Реставрация ретрознака в мастерской",
+        }),
         alt: "Реставрация ретрознака в мастерской",
       },
     },

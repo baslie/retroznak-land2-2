@@ -1,3 +1,4 @@
+import { createMockPhoto } from "@/lib/placeholders";
 import type { ReviewsContent } from "@/types/content";
 
 export const reviewsContent: ReviewsContent = {
@@ -10,7 +11,14 @@ export const reviewsContent: ReviewsContent = {
       role: "Владелица исторического дома",
       rating: 5,
       text: "Заказали ретрознак для фасада дома 1936 года. Команда помогла подобрать шрифт и цвет, а монтаж занял всего 20 минут.",
-      image: "/images/reviews/maria.jpg",
+      image: createMockPhoto({
+        width: 560,
+        height: 560,
+        title: "Мария",
+        subtitle: "Москва",
+        footer: "Исторический дом",
+        description: "Мария, владелица исторического дома, делится отзывом",
+      }),
     },
     {
       id: "review-2",
@@ -18,7 +26,14 @@ export const reviewsContent: ReviewsContent = {
       role: "Ресторан в Санкт-Петербурге",
       rating: 5,
       text: "Гости постоянно фотографируются у входа. Ретрознак стал узнаваемой точкой, и продажи мерча выросли.",
-      image: "/images/reviews/cafe.jpg",
+      image: createMockPhoto({
+        width: 560,
+        height: 560,
+        title: "Кафе \"Север\"",
+        subtitle: "Санкт-Петербург",
+        footer: "Фасад",
+        description: "Кафе \"Север\" рассказывает об опыте установки ретрознака",
+      }),
     },
     {
       id: "review-3",
@@ -26,7 +41,14 @@ export const reviewsContent: ReviewsContent = {
       role: "Экспозиция о Ленинграде",
       rating: 5,
       text: "Получили точную копию таблички из 40-х. В комплекте прислали архивные материалы и рекомендации по уходу.",
-      image: "/images/reviews/museum.jpg",
+      image: createMockPhoto({
+        width: 560,
+        height: 560,
+        title: "Музей",
+        subtitle: "Городская история",
+        footer: "Ленинград",
+        description: "Музей \"Городская история\" рассказывает о реплике таблички",
+      }),
     },
   ],
   cta: {

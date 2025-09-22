@@ -1,3 +1,4 @@
+import { createQrPlaceholder } from "@/lib/placeholders";
 import type { FinalCtaContent } from "@/types/content";
 
 export const finalCtaContent: FinalCtaContent = {
@@ -43,26 +44,34 @@ export const finalCtaContent: FinalCtaContent = {
       label: "WhatsApp",
       href: "https://wa.me/79990000000",
       description: "Ответим в течение 10 минут",
-      qrCodeImage: "/images/qr/whatsapp.png",
+      qrCodeImage: createQrPlaceholder({
+        label: "WhatsApp",
+        footer: "Ответим за 10 минут",
+        description: "QR-код WhatsApp для связи с Retroznak",
+      }),
     },
     {
       platform: "telegram",
       label: "Telegram",
       href: "https://t.me/retrozna",
       description: "Онлайн ежедневно 10:00–22:00",
-      qrCodeImage: "/images/qr/telegram.png",
+      qrCodeImage: createQrPlaceholder({
+        label: "Telegram",
+        footer: "10:00–22:00",
+        description: "QR-код Telegram для связи с Retroznak",
+      }),
     },
   ],
   resources: [
     {
-      label: "Инструкция по монтажу (PDF)",
-      href: "/pdf/installation.pdf",
-      type: "pdf",
+      label: "Инструкция по монтажу",
+      href: "/docs/installation",
+      type: "article",
     },
     {
-      label: "Уход за ретрознаком (PDF)",
-      href: "/pdf/care.pdf",
-      type: "pdf",
+      label: "Уход за ретрознаком",
+      href: "/docs/care",
+      type: "article",
     },
     {
       label: "Блог о советской типографике",

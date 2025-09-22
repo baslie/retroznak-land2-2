@@ -41,6 +41,11 @@ root
 │  │  │     ├─ CallbackForm.tsx
 │  │  │     ├─ ConsultationForm.tsx
 │  │  │     └─ QuestionForm.tsx
+│  │  ├─ docs
+│  │  │  ├─ care
+│  │  │  │  └─ page.tsx
+│  │  │  └─ installation
+│  │  │     └─ page.tsx
 │  │  ├─ layout.tsx (маркетинговый layout: хедер + футер)
 │  │  └─ page.tsx (сборка лендинга из секций)
 │  └─ api
@@ -49,17 +54,9 @@ root
 │        │  └─ route.ts
 │        └─ types.ts
 ├─ public
-│  ├─ images
-│  │  ├─ hero
-│  │  ├─ timeline
-│  │  ├─ products
-│  │  ├─ production
-│  │  ├─ reviews
-│  │  └─ qr
-│  ├─ pdf
-│  │  ├─ installation.pdf
-│  │  └─ care.pdf
-│  └─ logo.svg
+│  ├─ favicon.svg
+│  ├─ safari-pinned-tab.svg
+│  └─ site.webmanifest
 ├─ src
 │  ├─ content
 │  │  ├─ hero.ts
@@ -75,8 +72,9 @@ root
 │  │  ├─ useContactForm.ts
 │  │  └─ useMediaQuery.ts
 │  ├─ lib
+│  │  ├─ analytics.ts
 │  │  ├─ mailer.ts
-│  │  └─ analytics.ts
+│  │  └─ placeholders.ts
 │  ├─ styles
 │  │  ├─ globals.css
 │  │  └─ tailwind.css
@@ -142,8 +140,8 @@ root
 
 ### 4.9 FinalCTASection
 - Заголовок, подзаголовок, список триггеров (иконки + текст).
-- Три CTA: форма заявки, кнопки для WhatsApp/Telegram + QR (статичные изображения из `/public/images/qr/`).
-- Ссылки на PDF (инструкция, уход) — статические файлы в `public/pdf/`.
+- Три CTA: форма заявки, кнопки для WhatsApp/Telegram + QR (векторные заглушки генерируются через `createQrPlaceholder`).
+- Раздел «Полезные материалы» ссылается на страницы `/docs/installation` и `/docs/care` в App Router.
 - Соцсети и юридический блок, копирайт.
 
 ## 5. Формы и обработка заявок
@@ -190,18 +188,18 @@ root
 - Базовая тема — тёмная с акцентом на «чёрно-белую» эстетику: глубокие угольные, графитовые, антрацитовые оттенки и мягкие дымчатые светлые тона. Исключаем коричневые, зелёные и синие цвета; допустимы только нейтральные градации серого и холодные металлизированные акценты (серебристый, платиновый).
 - Цветовые токены, радиусы и теневые пресеты хранятся в `tailwind.config.ts` и синхронизируются с `globals.css`, чтобы компоненты shadcn/ui и кастомные секции выглядели единообразно.
 - Для быстрой перенастройки цветовой схемы используется сервис tweakcn: выбранная там тема экспортируется в JSON/`tailwind.config.ts`, после чего применяются цвета в `cn`-вариантах компонентов shadcn/ui.
-- Создаётся кастомная тема (`tailwind.config.ts`):
-  - Цвета: `retro-charcoal` (`#161616`), `retro-graphite` (`#1F1F24`), `retro-smoke` (`#2B2B31`), `retro-ivory` (`#F5F5F5`), `accent-platinum` (`#C8C8CC`).
-  - Шрифты: заголовки — `"Noto Serif"`, текст — `"Manrope"` (оба доступны в Google Fonts, подключение через `<link>` в `app/layout.tsx`).
-  - Тени, радиусы, анимации.
-- Глобальные стили (`globals.css`) подключают CSS-переменные, шрифты из Google Fonts, normalize.
+  - Создаётся кастомная тема (`tailwind.config.ts`):
+    - Цвета: `retro-charcoal` (`#161616`), `retro-graphite` (`#1F1F24`), `retro-smoke` (`#2B2B31`), `retro-ivory` (`#F5F5F5`), `accent-platinum` (`#C8C8CC`).
+    - Шрифты: заголовки — `"Noto Serif"`, текст — `"Manrope"`; в проекте они задаются через CSS-переменные с системными fallback-гарнитурами, поэтому бинарные файлы не требуются.
+    - Тени, радиусы, анимации.
+  - Глобальные стили (`globals.css`) объявляют базовые CSS-переменные, типографику и normalize.
 - Компоненты используют Tailwind-классы + вариативные классы через `clsx`/`cva` для состояния (primary/secondary CTA).
 
 ## 8. Медиа и ассеты
 
-- Изображения оптимизируются через `next/image`, хранятся в `public/images/` с подкаталогами по секциям.
+- Изображения оптимизируются через `next/image`, источником служат data URL, созданные `createMockPhoto` без хранения бинарных файлов в `public/`.
 - До получения финальных медиа используются тематические заглушки из Unsplash (с указанием автора, если требуется лицензией).
-- PDF-файлы (инструкция, уход) хранятся в `public/pdf/`.
+- Текстовые версии инструкций размещены в `app/(marketing)/docs`, бинарные PDF загружаются во внешнее хранилище перед релизом.
 - SVG иконки импортируются как компоненты.
 
 ## 9. Оптимизация и SEO
