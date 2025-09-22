@@ -29,10 +29,10 @@
    **Ключевые файлы:** `tailwind.config.ts`, `postcss.config.js`, `src/styles/globals.css`, `src/styles/tailwind.css`, сгенерированные компоненты shadcn/ui в `components/ui/`.  
    **Проверки:** `npm run lint`, `npm run typecheck`, локальный просмотр через `npm run dev` (задокументировать ручную проверку в комментариях к задаче).
 
-3. **`[ ]` A3 — Организовать контентный слой и утилиты**  
-   **Статус:** -  
-   **Суть:** создать структуры `src/content/`, `src/types/`, `src/lib/`, заполнить типы (`TimelineItem`, `ProductCard`, формы и т.д.), подготовить заглушки контента на основе `wireframe.md`.  
-   **Ключевые файлы:** `src/types/content.ts`, `src/content/*.ts`, `src/lib/analytics.ts`, `src/lib/mailer.ts`, `src/hooks/useContactForm.ts`.  
+3. **`[✅]` A3 — Организовать контентный слой и утилиты**
+   **Статус:** ✅ выполнено — добавлены типы контента и форм, подготовлены заглушки для всех секций из `wireframe.md`, созданы базовые утилиты `analytics`, `mailer` и хук `useContactForm`.
+   **Суть:** создать структуры `src/content/`, `src/types/`, `src/lib/`, заполнить типы (`TimelineItem`, `ProductCard`, формы и т.д.), подготовить заглушки контента на основе `wireframe.md`.
+   **Ключевые файлы:** `src/types/content.ts`, `src/content/*.ts`, `src/lib/analytics.ts`, `src/lib/mailer.ts`, `src/hooks/useContactForm.ts`.
    **Проверки:** `npm run lint`, `npm run typecheck`, модульные тесты утилит (`npm run test`).
 
 ### Этап B. Функциональные секции и интеграции
