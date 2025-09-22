@@ -30,26 +30,26 @@
    **Проверки:** `npm run lint`, `npm run typecheck`, локальный просмотр через `npm run dev` (задокументировать ручную проверку в комментариях к задаче).
 
 3. **`[ ]` A3 — Организовать контентный слой и утилиты**  
-   **Статус:** ✅ выполнено — создан Next.js 15 каркас с типизацией, базовым маркетинговым layout и скриптами dev/build/test/typecheck.  
+   **Статус:** -  
    **Суть:** создать структуры `src/content/`, `src/types/`, `src/lib/`, заполнить типы (`TimelineItem`, `ProductCard`, формы и т.д.), подготовить заглушки контента на основе `wireframe.md`.  
    **Ключевые файлы:** `src/types/content.ts`, `src/content/*.ts`, `src/lib/analytics.ts`, `src/lib/mailer.ts`, `src/hooks/useContactForm.ts`.  
    **Проверки:** `npm run lint`, `npm run typecheck`, модульные тесты утилит (`npm run test`).
 
 ### Этап B. Функциональные секции и интеграции
 1. **`[ ]` B1 — Реализовать маркетинговые секции лендинга**  
-   **Статус:** ✅ выполнено — создан Next.js 15 каркас с типизацией, базовым маркетинговым layout и скриптами dev/build/test/typecheck.  
+   **Статус:** -  
    **Суть:** собрать компоненты из каталога `app/(marketing)/components/` согласно `wireframe.md` (Hero, Timeline, Segments, ProductMatrix, Production, Reviews, OrderProcess, FAQ, Final CTA, FloatingMenu, MobileNavDrawer). Использовать Framer Motion, Swiper и `next/image`.  
    **Ключевые файлы:** `app/(marketing)/page.tsx`, `app/(marketing)/layout.tsx`, соответствующие компоненты в `app/(marketing)/components/`.  
    **Проверки:** `npm run lint`, `npm run typecheck`, `npm run test`, ручная вёрсточная проверка в браузере.
 
 2. **`[ ]` B2 — Настроить формы и серверные маршруты**  
-   **Статус:** ✅ выполнено — создан Next.js 15 каркас с типизацией, базовым маркетинговым layout и скриптами dev/build/test/typecheck.  
+   **Статус:** -  
    **Суть:** внедрить формы (Callback, Consultation, Question) на базе React Hook Form + Zod, реализовать API Route `app/api/forms/contact/route.ts` с отправкой письма через Nodemailer и валидацией.  
    **Ключевые файлы:** `app/(marketing)/components/Forms/*.tsx`, `app/api/forms/contact/route.ts`, `src/types/forms.ts`, `src/lib/mailer.ts`.  
    **Проверки:** `npm run lint`, `npm run typecheck`, `npm run test`, интеграционный тест API (можно Vitest + supertest) и ручная отправка с тестовым SMTP.
 
 3. **`[ ]` B3 — Финализация, оптимизация и подготовка к релизу**  
-   **Статус:** ✅ выполнено — создан Next.js 15 каркас с типизацией, базовым маркетинговым layout и скриптами dev/build/test/typecheck.  
+   **Статус:** -  
    **Суть:** добавить SEO-настройки (Metadata API), подключить аналитику (`lib/analytics.ts`), проверить Lighthouse рекомендации, подготовить документацию по деплою. Провести финальный аудит доступа к ассетам (`public/images`, `public/pdf`).  
    **Ключевые файлы:** `app/layout.tsx`, `lib/analytics.ts`, `public/**`, инструкции в `README.md` (создать или дополнить).  
    **Проверки:** полный прогон `npm run lint`, `npm run typecheck`, `npm run test`, `npm run build`, ручная Smoke-проверка production-сборки через `npm run start`.
