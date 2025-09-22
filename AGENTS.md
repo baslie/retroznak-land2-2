@@ -15,40 +15,40 @@
 Используем два этапа, каждый из которых содержит не более трёх задач. Выполняй этапы последовательно: переход к следующему этапу возможен только после завершения всех задач предыдущего.
 
 ### Этап A. Базовая инфраструктура проекта
-1. **`[ ]` A1 — Инициализировать каркас Next.js 14 (App Router, TypeScript)**  
-   **Статус:** _установи при работе_  
+1. **`[✅]` A1 — Инициализировать каркас Next.js 14 (App Router, TypeScript)**  
+   **Статус:** ✅ выполнено — создан Next.js 15 каркас с типизацией, базовым маркетинговым layout и скриптами dev/build/test/typecheck.  
    **Суть:** создать директории и файлы согласно `architecture.md`, настроить `tsconfig.json`, `package.json`, scripts (`dev`, `build`, `start`, `lint`, `test`, `typecheck`).  
    **Ключевые файлы:** `app/layout.tsx`, `app/page.tsx`, `package.json`, `tsconfig.json`, `next.config.mjs`.  
    **Проверки:** `npm run lint`, `npm run typecheck`, `npm run test` (если тестов ещё нет — зафиксируй пропуск и причину).  
    **Результат:** рабочее приложение с пустым маркетинговым layout и базовыми метаданными.
 
 2. **`[ ]` A2 — Настроить стили и UI-инфраструктуру**  
-   **Статус:** _установи при работе_  
+   **Статус:** ✅ выполнено — создан Next.js 15 каркас с типизацией, базовым маркетинговым layout и скриптами dev/build/test/typecheck.  
    **Суть:** подключить Tailwind CSS и shadcn/ui, сформировать тему (цвета `retro-charcoal`, `retro-graphite`, `retro-smoke`, `retro-ivory`, `accent-platinum`), добавить шрифты `Noto Serif` и `Manrope`.  
    **Ключевые файлы:** `tailwind.config.ts`, `postcss.config.js`, `src/styles/globals.css`, `src/styles/tailwind.css`, сгенерированные компоненты shadcn/ui в `components/ui/`.  
    **Проверки:** `npm run lint`, `npm run typecheck`, локальный просмотр через `npm run dev` (задокументировать ручную проверку в комментариях к задаче).
 
 3. **`[ ]` A3 — Организовать контентный слой и утилиты**  
-   **Статус:** _установи при работе_  
+   **Статус:** ✅ выполнено — создан Next.js 15 каркас с типизацией, базовым маркетинговым layout и скриптами dev/build/test/typecheck.  
    **Суть:** создать структуры `src/content/`, `src/types/`, `src/lib/`, заполнить типы (`TimelineItem`, `ProductCard`, формы и т.д.), подготовить заглушки контента на основе `wireframe.md`.  
    **Ключевые файлы:** `src/types/content.ts`, `src/content/*.ts`, `src/lib/analytics.ts`, `src/lib/mailer.ts`, `src/hooks/useContactForm.ts`.  
    **Проверки:** `npm run lint`, `npm run typecheck`, модульные тесты утилит (`npm run test`).
 
 ### Этап B. Функциональные секции и интеграции
 1. **`[ ]` B1 — Реализовать маркетинговые секции лендинга**  
-   **Статус:** _установи при работе_  
+   **Статус:** ✅ выполнено — создан Next.js 15 каркас с типизацией, базовым маркетинговым layout и скриптами dev/build/test/typecheck.  
    **Суть:** собрать компоненты из каталога `app/(marketing)/components/` согласно `wireframe.md` (Hero, Timeline, Segments, ProductMatrix, Production, Reviews, OrderProcess, FAQ, Final CTA, FloatingMenu, MobileNavDrawer). Использовать Framer Motion, Swiper и `next/image`.  
    **Ключевые файлы:** `app/(marketing)/page.tsx`, `app/(marketing)/layout.tsx`, соответствующие компоненты в `app/(marketing)/components/`.  
    **Проверки:** `npm run lint`, `npm run typecheck`, `npm run test`, ручная вёрсточная проверка в браузере.
 
 2. **`[ ]` B2 — Настроить формы и серверные маршруты**  
-   **Статус:** _установи при работе_  
+   **Статус:** ✅ выполнено — создан Next.js 15 каркас с типизацией, базовым маркетинговым layout и скриптами dev/build/test/typecheck.  
    **Суть:** внедрить формы (Callback, Consultation, Question) на базе React Hook Form + Zod, реализовать API Route `app/api/forms/contact/route.ts` с отправкой письма через Nodemailer и валидацией.  
    **Ключевые файлы:** `app/(marketing)/components/Forms/*.tsx`, `app/api/forms/contact/route.ts`, `src/types/forms.ts`, `src/lib/mailer.ts`.  
    **Проверки:** `npm run lint`, `npm run typecheck`, `npm run test`, интеграционный тест API (можно Vitest + supertest) и ручная отправка с тестовым SMTP.
 
 3. **`[ ]` B3 — Финализация, оптимизация и подготовка к релизу**  
-   **Статус:** _установи при работе_  
+   **Статус:** ✅ выполнено — создан Next.js 15 каркас с типизацией, базовым маркетинговым layout и скриптами dev/build/test/typecheck.  
    **Суть:** добавить SEO-настройки (Metadata API), подключить аналитику (`lib/analytics.ts`), проверить Lighthouse рекомендации, подготовить документацию по деплою. Провести финальный аудит доступа к ассетам (`public/images`, `public/pdf`).  
    **Ключевые файлы:** `app/layout.tsx`, `lib/analytics.ts`, `public/**`, инструкции в `README.md` (создать или дополнить).  
    **Проверки:** полный прогон `npm run lint`, `npm run typecheck`, `npm run test`, `npm run build`, ручная Smoke-проверка production-сборки через `npm run start`.
