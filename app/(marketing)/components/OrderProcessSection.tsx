@@ -57,7 +57,6 @@ export function OrderProcessSection() {
               Заполните форму заявки, и мы подготовим макет в течение двух часов, а затем согласуем сроки производства.
             </p>
             <CTAButton cta={cta} className="justify-center" />
-            <div id="consultation" className="sr-only" aria-hidden />
           </div>
         </div>
       </div>

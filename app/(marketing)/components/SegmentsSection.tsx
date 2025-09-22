@@ -50,7 +50,6 @@ export function SegmentsSection() {
             <p className="text-sm text-muted-foreground">Подберём реализованные проекты и предложим идеи для фасада.</p>
           </div>
           <CTAButton cta={cta} size="md" />
-          <div id="callback" className="sr-only" aria-hidden />
         </div>
       </div>
     </section>

@@ -133,7 +133,6 @@ export function TimelineSection() {
             <p className="text-sm text-muted-foreground">Расскажем, как воспроизвести оригинальный знак по архивам.</p>
           </div>
           <CTAButton cta={cta} size="md" />
-          <div id="timeline-form" className="sr-only" aria-hidden />
         </div>
       </div>
     </section>

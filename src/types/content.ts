@@ -8,13 +8,16 @@ export interface Cta {
   description?: string;
 }
 
-export type MessengerPlatform =
-  | "phone"
-  | "whatsapp"
-  | "telegram"
-  | "email"
-  | "vk"
-  | "youtube";
+export const MESSENGER_PLATFORMS = [
+  "phone",
+  "whatsapp",
+  "telegram",
+  "email",
+  "vk",
+  "youtube",
+] as const;
+
+export type MessengerPlatform = (typeof MESSENGER_PLATFORMS)[number];
 
 export interface HeroContent {
   eyebrow: string;

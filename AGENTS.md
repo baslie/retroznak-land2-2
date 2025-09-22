@@ -42,10 +42,10 @@
    **Ключевые файлы:** `app/(marketing)/page.tsx`, `app/(marketing)/layout.tsx`, соответствующие компоненты в `app/(marketing)/components/`.  
    **Проверки:** `npm run lint`, `npm run typecheck`, `npm run test`, ручная вёрсточная проверка в браузере.
 
-2. **`[ ]` B2 — Настроить формы и серверные маршруты**  
-   **Статус:** -  
-   **Суть:** внедрить формы (Callback, Consultation, Question) на базе React Hook Form + Zod, реализовать API Route `app/api/forms/contact/route.ts` с отправкой письма через Nodemailer и валидацией.  
-   **Ключевые файлы:** `app/(marketing)/components/Forms/*.tsx`, `app/api/forms/contact/route.ts`, `src/types/forms.ts`, `src/lib/mailer.ts`.  
+2. **`[✅]` B2 — Настроить формы и серверные маршруты**
+   **Статус:** ✅ выполнено — добавлены формы Callback/Consultation/Question на React Hook Form + Zod, реализован API-роут с отправкой через Nodemailer и витестами; проверки `npm run lint`, `npm run typecheck`, `npm run test` пройдены.
+   **Суть:** внедрить формы (Callback, Consultation, Question) на базе React Hook Form + Zod, реализовать API Route `app/api/forms/contact/route.ts` с отправкой письма через Nodemailer и валидацией.
+   **Ключевые файлы:** `app/(marketing)/components/Forms/*.tsx`, `app/api/forms/contact/route.ts`, `src/types/forms.ts`, `src/lib/mailer.ts`.
    **Проверки:** `npm run lint`, `npm run typecheck`, `npm run test`, интеграционный тест API (можно Vitest + supertest) и ручная отправка с тестовым SMTP.
 
 3. **`[ ]` B3 — Финализация, оптимизация и подготовка к релизу**  
