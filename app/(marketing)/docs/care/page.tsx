@@ -68,7 +68,7 @@ export default function CareGuidePage() {
                 <ul className="space-y-3 text-sm text-muted-foreground">
                   {check.items.map((item) => (
                     <li key={item} className="flex gap-3">
-                      <span className="mt-1 inline-flex h-2 w-2 flex-shrink-0 rounded-full bg-accent-platinum" aria-hidden />
+                      <span className="mt-1 inline-flex h-2 w-2 shrink-0 rounded-full bg-accent-platinum" aria-hidden />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -82,7 +82,7 @@ export default function CareGuidePage() {
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
               {storageTips.map((tip) => (
                 <li key={tip} className="flex gap-3">
-                  <span className="mt-1 inline-flex h-2 w-2 flex-shrink-0 rounded-full bg-accent-platinum" aria-hidden />
+                  <span className="mt-1 inline-flex h-2 w-2 shrink-0 rounded-full bg-accent-platinum" aria-hidden />
                   <span>{tip}</span>
                 </li>
               ))}

@@ -12,7 +12,13 @@
       "Bash(npm test)",
       "Bash(npm run build:*)",
       "Bash(npx:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(npm run dev:*)",
+      "Bash(ls:*)",
+      "mcp__vibe-annotations__read_annotations",
+      "mcp__vibe-annotations__delete_annotation",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

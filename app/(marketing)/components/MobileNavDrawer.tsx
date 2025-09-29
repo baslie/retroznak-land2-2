@@ -19,7 +19,7 @@ export function MobileNavDrawer({ menuItems, cta, messengers }: MobileNavDrawerP
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex items-center md:hidden">
+    <div className="flex items-center">
       <button
         type="button"
         onClick={() => setOpen(true)}
@@ -30,7 +30,7 @@ export function MobileNavDrawer({ menuItems, cta, messengers }: MobileNavDrawerP
         <Menu className="h-5 w-5" aria-hidden />
       </button>
       {open ? (
-        <div className="fixed inset-0 z-50 flex flex-col bg-retro-charcoal/95 backdrop-blur">
+        <div className="fixed inset-0 z-50 flex flex-col bg-retro-charcoal/95 backdrop-blur-sm">
           <div className="flex items-center justify-between border-b border-border/70 px-6 py-5">
             <span className="text-sm font-semibold uppercase tracking-[0.32em] text-accent-platinum">Retroznak</span>
             <button

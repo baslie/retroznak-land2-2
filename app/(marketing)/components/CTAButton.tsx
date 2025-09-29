@@ -43,7 +43,7 @@ export function CTAButton({ cta, className, size = "md", icon, children }: CTABu
       <a
         href={destination}
         className={cn(
-          "inline-flex items-center justify-center rounded-full font-semibold tracking-tight transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-retro-charcoal",
+          "inline-flex items-center justify-center rounded-full font-semibold tracking-tight transition focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-retro-charcoal",
           variantClasses[variant] ?? variantClasses.primary,
           sizeClasses[size],
           className,
@@ -60,7 +60,7 @@ export function CTAButton({ cta, className, size = "md", icon, children }: CTABu
     <Link
       href={destination}
       className={cn(
-        "inline-flex items-center justify-center rounded-full font-semibold tracking-tight transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-retro-charcoal",
+        "inline-flex items-center justify-center rounded-full font-semibold tracking-tight transition focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-retro-charcoal",
         variantClasses[variant] ?? variantClasses.primary,
         sizeClasses[size],
         className,

@@ -72,7 +72,7 @@ export default function InstallationGuidePage() {
                 <ul className="space-y-3 text-sm text-muted-foreground">
                   {step.points.map((point) => (
                     <li key={point} className="flex gap-3">
-                      <span className="mt-1 inline-flex h-2 w-2 flex-shrink-0 rounded-full bg-accent-platinum" aria-hidden />
+                      <span className="mt-1 inline-flex h-2 w-2 shrink-0 rounded-full bg-accent-platinum" aria-hidden />
                       <span>{point}</span>
                     </li>
                   ))}
@@ -85,15 +85,15 @@ export default function InstallationGuidePage() {
             <h2 className="text-xl font-semibold text-retro-ivory">Перед сдачей объекта</h2>
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
               <li className="flex gap-3">
-                <span className="mt-1 inline-flex h-2 w-2 flex-shrink-0 rounded-full bg-accent-platinum" aria-hidden />
+                <span className="mt-1 inline-flex h-2 w-2 shrink-0 rounded-full bg-accent-platinum" aria-hidden />
                 <span>Проверьте работу подсветки в дневном и ночном режимах.</span>
               </li>
               <li className="flex gap-3">
-                <span className="mt-1 inline-flex h-2 w-2 flex-shrink-0 rounded-full bg-accent-platinum" aria-hidden />
+                <span className="mt-1 inline-flex h-2 w-2 shrink-0 rounded-full bg-accent-platinum" aria-hidden />
                 <span>Убедитесь, что блок питания доступен для обслуживания и подписан.</span>
               </li>
               <li className="flex gap-3">
-                <span className="mt-1 inline-flex h-2 w-2 flex-shrink-0 rounded-full bg-accent-platinum" aria-hidden />
+                <span className="mt-1 inline-flex h-2 w-2 shrink-0 rounded-full bg-accent-platinum" aria-hidden />
                 <span>Задокументируйте серийный номер ретрознака и дату установки.</span>
               </li>
             </ul>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { MessageCircle, Send } from "lucide-react";
 
 import { footerContent } from "@/content/footer";
 import { navigationContent } from "@/content/navigation";
@@ -32,13 +33,31 @@ export default function MarketingLayout({ children }: Readonly<{ children: React
             ))}
           </nav>
           <div className="flex items-center gap-3">
+            <div className="hidden items-center gap-2 md:flex">
+              <a
+                href="#"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-retro-graphite/80 text-accent-platinum transition hover:border-accent-platinum hover:text-retro-ivory"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-retro-graphite/80 text-accent-platinum transition hover:border-accent-platinum hover:text-retro-ivory"
+                aria-label="Telegram"
+              >
+                <Send className="h-5 w-5" />
+              </a>
+            </div>
             <CTAButton cta={cta} size="sm" className="hidden md:inline-flex" />
-            <MobileNavDrawer menuItems={menuItems} cta={cta} messengers={messengers} />
+            <div className="md:hidden">
+              <MobileNavDrawer menuItems={menuItems} cta={cta} messengers={messengers} />
+            </div>
           </div>
         </div>
       </header>
 
-      <FloatingMenu menuItems={menuItems} cta={cta} messengers={messengers} />
+      {/* <FloatingMenu menuItems={menuItems} cta={cta} messengers={messengers} /> */}
 
       <main className="flex-1 pb-20 pt-12">{children}</main>
 

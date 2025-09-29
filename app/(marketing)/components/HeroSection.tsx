@@ -13,7 +13,7 @@ export function HeroSection() {
 
   return (
     <section id="hero" className="relative overflow-hidden pb-20 pt-16 sm:pt-24">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-retro-graphite/50 via-retro-charcoal to-black/80" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-br from-retro-graphite/50 via-retro-charcoal to-black/80" />
       <div className="pointer-events-none absolute -left-32 top-20 hidden h-72 w-72 rounded-full bg-accent-platinum/10 blur-3xl lg:block" />
       <div className="pointer-events-none absolute -right-32 top-1/3 hidden h-80 w-80 rounded-full bg-accent-platinum/5 blur-3xl lg:block" />
 
@@ -65,7 +65,7 @@ export function HeroSection() {
           transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
         >
           <div className="relative w-full max-w-xl overflow-hidden rounded-[2.5rem] border border-border/70 bg-retro-graphite/60 p-4 shadow-2xl shadow-black/40">
-            <div className="relative h-[420px] w-full overflow-hidden rounded-[2rem]">
+            <div className="relative h-[420px] w-full overflow-hidden rounded-4xl">
               <Image
                 src={visual.image}
                 alt={visual.alt}

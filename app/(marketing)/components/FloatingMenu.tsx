@@ -59,7 +59,7 @@ export function FloatingMenu({ menuItems, cta, messengers, className }: Floating
   return (
     <aside
       className={cn(
-        "pointer-events-none fixed right-6 top-1/2 hidden w-64 -translate-y-1/2 flex-col gap-5 rounded-3xl border border-border/70 bg-retro-graphite/75 p-5 shadow-xl shadow-black/30 backdrop-blur lg:flex",
+        "pointer-events-none fixed right-6 top-1/2 hidden w-64 -translate-y-1/2 flex-col gap-5 rounded-3xl border border-border/70 bg-retro-graphite/75 p-5 shadow-xl shadow-black/30 backdrop-blur-sm 2xl:flex",
         className,
       )}
       aria-label="Быстрая навигация по разделам"
