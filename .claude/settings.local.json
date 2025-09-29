@@ -18,9 +18,19 @@
       "Bash(ls:*)",
       "mcp__vibe-annotations__read_annotations",
       "mcp__vibe-annotations__delete_annotation",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(git push:*)",
+      "Bash(del mcp-server.js)",
+      "Bash(claude --debug)",
+      "Read(//c/Users/Roman/**)"
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "context7",
+    "vibe-annotations",
+    "shadcn"
+  ]
 }
